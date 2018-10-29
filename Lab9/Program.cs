@@ -19,10 +19,10 @@ namespace Lab9
             {
                 if (int.TryParse(userInput, out int value))
                 {
-                    studentIndex = value;
+                    studentIndex = value - 1;
                     try
                     {
-                        selectedStudent = Students[studentIndex - 1];
+                        selectedStudent = Students[studentIndex];
                     }
                     catch (ArgumentOutOfRangeException e)
                     {
