@@ -15,6 +15,9 @@ namespace Lab9
             Initialize();
             string selectedStudent = "";
             int studentIndex = 0;
+            // James - for checking Strings, you can use string.Equals(""), then put either == false or a "!" in front
+            // of the string, so something like this.
+            // while (!string.userInput.Equals("");
             while (userInput != "")
             {
                 if (int.TryParse(userInput, out int value))
@@ -29,6 +32,7 @@ namespace Lab9
                         Console.WriteLine("ID must be between 1 and 20");
                     }
 
+                    // James - nice use of indexing for getting the correct user. 
                     Console.WriteLine($"Student chosen: ({userInput})-{selectedStudent}");
                 }
 
@@ -38,10 +42,13 @@ namespace Lab9
             Console.Write($"What would you like to know about {selectedStudent}? (height or birthdate):");
             userInput = Console.ReadLine();
 
+            // James - I would validate for this information
             if (userInput == "height")
             {
                 Console.WriteLine($"{selectedStudent} is {Heights[studentIndex]} tall.");
             }
+            // James - I would also use validation for this input, also for checking if a string equals something, 
+            // just like at the begenning of your app, you can use something like userInput.Equals("birthdate", StringComparison.OrdinalIgnoreCase);
             else if (userInput == "birthdate")
             {
                 Console.WriteLine($"{selectedStudent} was born on {Birthdates[studentIndex]}.");
@@ -52,11 +59,16 @@ namespace Lab9
 
         public static void Initialize()
         {
+            // James - I like that this is in a seperate method.  I would change the name to something more meaningful like, GetUserNumber(),
+            // I would also have this method return a string and store that string value where this method is called instead of using a 
+            // field at the top of the file.      ie. var userInput = Initialize();
             Console.Write("Welcome to Class 1-A. Please choose a student to learn more information about them. (enter a number 1-20): ");
             userInput = Console.ReadLine();
 
         }
 
+        // James - instead of three LIsts, I would consider using a Student class, and store each student into a single List
+        // so like var students = List<Student>();
         public static List<string> Students = new List<string>
         {
             "Aoyama Yuga",
