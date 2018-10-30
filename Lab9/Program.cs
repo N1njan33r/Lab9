@@ -14,37 +14,37 @@ namespace Lab9
             string userInput = Initialize();
             string selectedStudent = "";
             int studentIndex = 0;
-            //do
-            //{
-            //    if (int.TryParse(userInput, out int value))
-            //    {
-            //        studentIndex = value - 1;
-            //        try
-            //        {
-            //            selectedStudent = Students.Names[studentIndex];
-            //        }
-            //        catch (ArgumentOutOfRangeException e)
-            //        {
-            //            Console.WriteLine("ID must be between 1 and 20");
-            //        }
+            do
+            {
+                if (int.TryParse(userInput, out int value))
+                {
+                    studentIndex = value - 1;
+                    try
+                    {
+                        selectedStudent = students.Names[studentIndex];
+                    }
+                    catch (ArgumentOutOfRangeException e)
+                    {
+                        Console.WriteLine("ID must be between 1 and 20");
+                    }
 
-            //        Console.WriteLine($"Student chosen: ({userInput})-{selectedStudent}");
-            //    }
+                    Console.WriteLine($"Student chosen: ({userInput})-{selectedStudent}");
+                }
 
-            //    break;
-            //} while (true);
+                break;
+            } while (true);
 
-            //Console.Write($"What would you like to know about {selectedStudent}? (height or birthdate):");
-            //userInput = Console.ReadLine();
+            Console.Write($"What would you like to know about {selectedStudent}? (height or birthdate):");
+            userInput = Console.ReadLine();
 
-            //if (userInput == "height")
-            //{
-            //    Console.WriteLine($"{selectedStudent} is {Students.Heights[studentIndex]} tall.");
-            //}
-            //else if (userInput == "birthdate")
-            //{
-            //    Console.WriteLine($"{selectedStudent} was born on {Birthdates[studentIndex]}.");
-            //}
+            if (userInput == "height")
+            {
+                Console.WriteLine($"{selectedStudent} is {students.Heights[studentIndex]} tall.");
+            }
+            else if (userInput == "birthdate")
+            {
+                Console.WriteLine($"{selectedStudent} was born on {students.Birthdates[studentIndex]}.");
+            }
 
             Console.ReadKey();
         }
